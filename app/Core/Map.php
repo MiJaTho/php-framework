@@ -51,8 +51,7 @@ class Map
 
     /**
      * Get the value of a given key as an integer.
-     * TODO: Returns "0" for a string that does not represent a number
-     *       I guess this is OK though
+     * 
      *
      * @param string $key
      * @return int|null

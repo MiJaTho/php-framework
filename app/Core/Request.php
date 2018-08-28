@@ -75,10 +75,9 @@ class Request
     public function __construct()
     {
         $this->domain = $_SERVER['HTTP_HOST'];
-
-        // REQUEST_URI is a potential security risk as the user can provide a URL like:
-        // index.php?../../../ssh - all paths should be sanitized before outputting
-        // them to a browser!
+        // REQUEST_URI ist ein potenzielles Sicherheitsrisiko, da der Benutzer eine URL wie folgt bereitstellen kann:
+        // index.php? ../../../ ssh - Alle Pfade sollten vor der Ausgabe bereinigt werden
+       
         $this->fullPath = $_SERVER['REQUEST_URI'];
 
         $this->basePath = substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
@@ -174,7 +173,7 @@ class Request
      */
     public function is(string $method) : bool
     {
-        // TODO: zu rinder etc ausrollen
+        
         return strtolower($this->method) === strtolower($method);
     }
 

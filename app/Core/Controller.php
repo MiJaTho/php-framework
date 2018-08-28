@@ -138,10 +138,7 @@ abstract class Controller
      * @throws Exception CSRF Token error
      */
     protected function handleCsrfToken() {
-        // TODO: Maybe this should be:
-        // if (in_array($this->request->method(), ['POST', 'PUT', 'DELETE'])
-        // ALSO maybe ['POST', 'PUT', 'DELETE'] should be a protected property
-        // that we can overide in child classes
+       
         if ($this->request->is('POST') && !$this->validateCsrfToken()) {
             throw new Exception("CSRF Token error.");
         }
@@ -182,7 +179,7 @@ abstract class Controller
 
     /**
      * Adds the basePath and csrf_field to the view's data array
-     * TODO: Mixed studlyCase and snake_case. Make this consistent!
+     * 
      *
      * @return string The newly created CSRF-Token
      */

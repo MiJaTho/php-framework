@@ -56,7 +56,7 @@ class UserModel extends Model
             . "(`username`,  `password`) VALUES "
             . "('$username', '$password')";
         
-        // TODO: should return ID of new user
+        
         return $this->db->query($sql);
     }
 }

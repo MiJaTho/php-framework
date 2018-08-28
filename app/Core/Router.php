@@ -58,8 +58,7 @@ class Router
             }
         }
 
-        //$errorController = new ErrorController($request);
-        //return $errorController->notFound();
+        
         return "NOT FOUND!";
     }
 
@@ -145,8 +144,9 @@ class Router
         $controllerPath = PATH . "Controllers/{$controllerName}.php";
         $user = $request->session()->getInt('user');
 
-        // If this is a login route and the user is not logged in
-        // redirect to LoginController::index()
+       
+        // Wenn dies eine Login-Route ist und der Benutzer nicht angemeldet ist
+        // Umleitung zu LoginController :: index ()
         if (isset($config['login']) && $config['login'] && !$user) {
             require_once PATH . "Controllers/LoginController.php";
             $login = new LoginController($request);

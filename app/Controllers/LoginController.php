@@ -39,7 +39,7 @@ class LoginController extends Controller
         $username = $params->get('username');
         $password = $params->get('password');
 
-        // TODO: automate filling the 'old' array
+       
         $this->data['old'] = [ 'username' => $username ];
 
         if (empty($username) || empty($password)) {

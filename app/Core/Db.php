@@ -21,8 +21,7 @@ abstract class Db
      */
     private static function connect() : mysqli
     {
-        // TODO: This should not be hardcoded here.
-        // How about a Config class?
+        
         $db_config = require "../config/db.php" ;
 
         $db = new mysqli(

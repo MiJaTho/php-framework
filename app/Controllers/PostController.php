@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         $params = $this->request->params();
 
-        // Validation missing - oops
+       
 
         $success = $this->model->createPost(
             $this->user,
