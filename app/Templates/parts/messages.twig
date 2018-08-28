@@ -1,0 +1,32 @@
+{% if messages.notices %}
+  <div class="ui info message">
+    {% for message in messages.notices %}
+      <div class="info">
+        <i class="announcement icon"></i>
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% if messages.errors %}
+  <div class="ui error message">
+    {% for error in messages.errors %}
+      <div class="error">
+        <i class="warning circle icon"></i>
+        {{ error }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% if messages.oks %}
+  <div class="ui success message">
+    {% for ok in messages.oks %}
+      <div class="success">
+        <i class="info circle icon"></i>
+        {{ ok }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

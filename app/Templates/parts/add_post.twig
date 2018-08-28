@@ -1,0 +1,20 @@
+<div class="ui container segment padded">
+
+    <div class="ui header">
+    Add post
+  </div>
+
+  <form class="ui form" method="POST" action="{{ basePath }}/posts">
+
+    {{ csrf_field|raw }}
+    
+    <div class="field">
+      <input type="text" name="title" placeholder="Message title." value="{{ fields.title }}">
+    </div>
+    <div class="field">
+      <textarea rows="2" name="content" placeholder="Your message here.">{{ fields.content }}</textarea>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+
+</div>

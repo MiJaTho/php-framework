@@ -1,0 +1,42 @@
+{% extends "layout.twig" %}
+
+{% block title %}POSTLIST{% endblock %}
+
+{% block content %}
+{{ include('parts/add_post.twig') }}
+
+<div class="ui container segment">
+  <div class="ui large feed">
+
+    <div class="ui large header">
+      Postlist
+    </div>
+
+    {% for post in posts %}
+      <div class="event">
+        <div class="label">
+          <img src="{{ basePath }}/{{ post.portrait }}" alt="{{ post.screenname }}">
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a class="user" href="{{ basePath }}/profile/{{ post.userid }}">
+              {{ post.screenname }}
+            </a> posted on
+            <div class="date">
+              {{ post.created|date("d. M H:i") }}
+            </div>
+            {% if delbtn %}
+              <div class="date"><button class="delbtn" id="delbtn-{{ post.id }}">X</button></div>
+            {% endif %}
+          </div>
+          <div class="extra text">
+            <h3 class="ui medium header">{{ post.title }}</h3>
+            {{ post.content | nl2br }}
+          </div>
+        </div> <!-- .content -->
+      </div> <!-- .event -->
+    {% endfor %}
+  </div> <!-- .feed -->
+</div> <!-- .container -->
+{% endblock %}
+

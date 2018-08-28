@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html lang="de">
+<head>
+    <title>Framework Registration</title>
+    {{ include('parts/head.twig') }}
+    <style type="text/css">
+        body         { background-color: #ccc; }
+        body > .grid { height: 100%; }
+        .column      { max-width: 450px; }
+    </style>
+</head>
+
+<body>
+
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui blue image header">
+            Register with TestApp!
+        </h2>
+        <form class="ui large form" method="POST" action="{{ basePath }}/register">
+
+            {{ csrf_field|raw }}
+
+            <div class="ui padded segment">
+                <div class="field">
+                    <label for="username">Email</label>
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="email" name="username" autocomplete="off" value="{{ fields.username }}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" autocomplete="off">
+                    </div>
+                </div>
+                <input type="submit" class="ui fluid large blue submit button" value="Register">
+            </div>
+        </form>
+        {% if error %}
+            <div class="ui error message">{{ error }}</div>
+        {% endif %}
+        <div class="ui message">
+            Already have an account? <a href="{{ basePath }}/login">Log in</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

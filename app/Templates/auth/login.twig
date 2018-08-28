@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html lang="de">
+<head>
+    <title>Framework</title>
+    {{ include('parts/head.twig') }}
+    <style type="text/css">
+        body         { background-color: #ccc; }
+        body > .grid { height: 100%; }
+        .column      { max-width: 450px; }
+    </style>
+</head>
+
+<body>
+
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui blue image header">
+            Framework Log In!
+        </h2>
+        <form class="ui large form" method="POST" action="{{ basePath }}/login">
+
+            {{ csrf_field|raw }}
+
+            <div class="ui stacked segment">
+                <div class="field">
+                    <label for="username">Email</label>
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="email" name="username" id="username" autocomplete="off" value="{{ old.username }}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" id="password" autocomplete="off">
+                    </div>
+                </div>
+                <input type="submit" class="ui fluid large blue submit button">
+            </div>
+        </form>
+        {% if error %}
+            <div class="ui error message">{{ error }}</div>
+        {% endif %}
+        <div class="ui message">
+            Don't have an account? <a href="{{ basePath }}/register">Sign Up here.</a>
+        </div>
+
+  </div>
+</div>
+
+</body>
+</html>
